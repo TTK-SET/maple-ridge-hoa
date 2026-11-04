@@ -1,5 +1,5 @@
 <!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Surprise Princess</title>
+<title>HOA Meeting Minutes</title>
 <style>
 body{font-family:system-ui,sans-serif;background:#1d1b26;color:#eee;max-width:760px;margin:auto;padding:16px}
 h1{font-size:22px}button{font-size:17px;padding:12px 18px;border:0;border-radius:10px;margin:4px;cursor:pointer}
@@ -707,12 +707,12 @@ function drawDaily(){const d=new Date(),c=dailyC(ymd(d));RES.d=c;const [p]=build
 // display: dark/light + disguise
 let LIGHT=lsg('sp_light',false),DISG=lsg('sp_disg',false),taps=0;
 function applyDisp(){document.body.classList[LIGHT?'add':'remove']('light');document.getElementById('dm').textContent=LIGHT?'🌙 Dark mode':'☀️ Light mode';
- document.getElementById('dg').textContent=DISG?'🕵️ Disguise: ON':'🕵️ Disguise: off';document.title=DISG?'HOA Meeting Minutes':'Surprise Princess'}
+ document.getElementById('dg').textContent=DISG?'🕵️ Disguise: ON':'🕵️ Disguise: off';document.title='HOA Meeting Minutes'}
 function togDark(){LIGHT=!LIGHT;lss('sp_light',LIGHT);applyDisp()}
 function togDisg(){DISG=!DISG;lss('sp_disg',DISG);applyDisp();if(DISG)toast('Disguise on: opens as HOA minutes. Tap its title 3× to open.')}
 function panic(){document.getElementById('hoa').style.display='block';document.title='HOA Meeting Minutes';window.scrollTo(0,0)}
 document.addEventListener('keydown',e=>{if(e.key==='Escape')panic()});
-function hoaTap(){taps++;clearTimeout(window._ht);window._ht=setTimeout(()=>taps=0,1500);if(taps>=3){taps=0;document.getElementById('hoa').style.display='none';document.title=DISG?'HOA Meeting Minutes':'Surprise Princess'}}
+function hoaTap(){taps++;clearTimeout(window._ht);window._ht=setTimeout(()=>taps=0,1500);if(taps>=3){taps=0;document.getElementById('hoa').style.display='none';document.title='HOA Meeting Minutes'}}
 
-document.getElementById('go').onclick=go;drawThemes();drawChars();drawOpts();drawMash();drawSaved();drawDaily();applyDisp();if(DISG)document.getElementById('hoa').style.display='block';showSingle(apply(pick(mode,ti())),true);
+document.getElementById('go').onclick=go;drawThemes();drawChars();drawOpts();drawMash();drawSaved();drawDaily();applyDisp();document.getElementById('hoa').style.display='block';document.title='HOA Meeting Minutes';showSingle(apply(pick(mode,ti())),true);
 </script></body></html>
